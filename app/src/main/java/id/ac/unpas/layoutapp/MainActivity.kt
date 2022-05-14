@@ -1,9 +1,11 @@
 package id.ac.unpas.layoutapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -40,7 +42,7 @@ fun Greeting(name: String) {
     Row() {
         Column(
             modifier = Modifier
-                .width(50.dp)
+                .width(50.dp).clickable { Log.i("Layout App","Icon Click") }
         ) {
             Image(
                 imageVector = Icons.Default.Person,
@@ -50,7 +52,7 @@ fun Greeting(name: String) {
             )
         }
 
-        Column(modifier = Modifier.width(200.dp)) {
+        Column(modifier = Modifier.width(200.dp).clickable { Log.i("Layout App","Hello Click") }) {
             Text(text = "Hello $name!")
             Text(text = "Welcome to Unpas")
         }
