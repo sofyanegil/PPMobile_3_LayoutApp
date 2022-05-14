@@ -1,16 +1,15 @@
 package id.ac.unpas.layoutapp
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -57,15 +56,25 @@ fun Greeting(name: String) {
         }
 
     ) {
-        
+
         BoxWithConstraints() {
-            if(maxWidth < 400.dp){
-               Text(text = "Widht < 400dp")
-            } else{
-                Text(text = "Width > 400dp")
+            if (maxWidth < 400.dp) {
+                Column {
+                    TextLeft(name)
+                    TextRight(name)
+                }
+            } else {
+                Row {
+                    Column {
+                        TextLeft(name)
+                    }
+                    Column {
+                        TextRight(name)
+                    }
+                }
             }
         }
-        
+
     }
 }
 
