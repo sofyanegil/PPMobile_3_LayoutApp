@@ -57,24 +57,15 @@ fun Greeting(name: String) {
         }
 
     ) {
-        Row() {
-            Column(
-                modifier = Modifier
-                    .width(50.dp).clickable { Log.i("Layout App", "Icon Click") }
-            ) {
-                Image(
-                    imageVector = Icons.Default.Person,
-                    contentDescription = null,
-                    modifier = Modifier.height(100.dp),
-                )
-            }
-            Column(
-                modifier = Modifier.width(200.dp)
-                    .clickable { Log.i("Layout App", "Hello Click") }) {
-                Text(text = "Hello $name!")
-                Text(text = "Welcome to Unpas")
+        
+        BoxWithConstraints() {
+            if(maxWidth < 400.dp){
+               Text(text = "Widht < 400dp")
+            } else{
+                Text(text = "Width > 400dp")
             }
         }
+        
     }
 }
 
